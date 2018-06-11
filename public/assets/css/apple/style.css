@@ -10467,3 +10467,7 @@ a.text-white:focus {
 .underline {
     border-bottom: 1px solid #e2e7eb !important;
 }
+
+.recuperar{
+	font-size: 100px !important;
+}

@@ -1,6 +1,6 @@
 @extends('layouts.empty', ['paceTop' => true, 'bodyExtraClass' => 'bg-white'])
 
-@section('title', 'Register Page')
+@section('title', 'Registar')
 
 @section('content')
 	<!-- begin register -->
@@ -9,7 +9,7 @@
 		<div class="news-feed">
 			<div class="news-image" style="background-image: url(../assets/img/login-bg/login-bg-9.jpg)"></div>
 			<div class="news-caption">
-				<h4 class="caption-title"><b>Color</b> Admin App</h4>
+				<h4 class="caption-title">IRIS <b>ON</b></h4>
 				<p>
 					As a Color Admin app administrator, you use the Color Admin console to manage your organization’s account, such as add new users, manage security settings, and turn on the services you want your team to access.
 				</p>
@@ -17,60 +17,99 @@
 		</div>
 		<!-- end news-feed -->
 		<!-- begin right-content -->
+		<div class="login login-with-news-feed">
+
 		<div class="right-content">
 			<!-- begin register-header -->
-			<h1 class="register-header">
-				Sign Up
-				<small>Create your Color Admin Account. It’s free and always will be.</small>
-			</h1>
+			<div class="login-header">
+			<div class="brand">
+                    <span class="logo"></span> IRIS <b>ON</b>
+                    <small>responsive bootstrap 3 admin template</small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-sign-in"></i>
+                </div>
+            </div>
+			<h1 class="register-header conta">Criar Conta</h1>
 			<!-- end register-header -->
 			<!-- begin register-content -->
 			<div class="register-content">
-				<form action="/" method="GET" class="margin-bottom-0">
-					<label class="control-label">Name <span class="text-danger">*</span></label>
-					<div class="row row-space-10">
-						<div class="col-md-6 m-b-15">
-							<input type="text" class="form-control" placeholder="First name" required />
-						</div>
-						<div class="col-md-6 m-b-15">
-							<input type="text" class="form-control" placeholder="Last name" required />
+
+				<form class="margin-bottom-0" method="POST" action="{{ route('register') }}">
+                        {{ csrf_field() }}
+					
+					<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+						<label for="name" class="control-label">Nome<span class="text-danger">*</span></label>
+						<div class="row m-b-15">
+							<div class="col-md-12">
+								<input id="name" type="text" class="form-control form-control-lg" name="name" value="{{ old('name') }}" placeholder="Nome " required autofocus>
+
+								@if ($errors->has('name'))
+	                                    <span class="help-block">
+	                                        <strong>{{ $errors->first('name') }}</strong>
+	                                    </span>
+	                                @endif
+
+							</div>
 						</div>
 					</div>
-					<label class="control-label">Email <span class="text-danger">*</span></label>
+
+					<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+						<label for="email" class="control-label">E-mail <span class="text-danger">*</span></label>
+						<div class="row m-b-15">
+							<div class="col-md-12">
+								<input placeholder="Email" id="email" type="email" class="form-control form-control-lg" name="email" value="{{ old('email') }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+						<label for="password" class="control-label">Palavra-Passe <span class="text-danger">*</span></label>
+						<div class="row m-b-15">
+							<div class="col-md-12">
+							<input id="password" type="password" class="form-control form-control-lg" name="password" placeholder="Palavra-Passe" required>
+
+								@if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+
+							</div>
+						</div>
+					</div>
+
+					<label for="password-confirm" class="control-label">Confirmar Palavra-Passe <span class="text-danger">*</span></label>
 					<div class="row m-b-15">
 						<div class="col-md-12">
-							<input type="text" class="form-control" placeholder="Email address" required />
+							<input id="password-confirm" type="password" class="form-control form-control-lg" name="password_confirmation" placeholder="Confirmar Palavra-Passe" required>
 						</div>
 					</div>
-					<label class="control-label">Re-enter Email <span class="text-danger">*</span></label>
-					<div class="row m-b-15">
-						<div class="col-md-12">
-							<input type="text" class="form-control" placeholder="Re-enter email address" required />
-						</div>
-					</div>
-					<label class="control-label">Password <span class="text-danger">*</span></label>
-					<div class="row m-b-15">
-						<div class="col-md-12">
-							<input type="password" class="form-control" placeholder="Password" required />
-						</div>
-					</div>
+					
 					<div class="checkbox checkbox-css m-b-30">
 						<div class="checkbox checkbox-css m-b-30">
 							<input type="checkbox" id="agreement_checkbox" value="">
 							<label for="agreement_checkbox">
-								By clicking Sign Up, you agree to our <a href="javascript:;">Terms</a> and that you have read our <a href="javascript:;">Data Policy</a>, including our <a href="javascript:;">Cookie Use</a>.
+								Li e aceito os  <a href="javascript:;" class="text-success">Termos de Utilização</a>.
 							</label>
 						</div>
 					</div>
 					<div class="register-buttons">
-						<button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+						<button type="submit" class="btn btn-success btn-block btn-lg">Criar Conta</button>
 					</div>
 					<div class="m-t-20 m-b-40 p-b-40 text-inverse">
-						Already a member? Click <a href="/login/v3">here</a> to login.
+						Já é membro? Clique <a href="/login" class="text-success">aqui</a> para fazer login.
 					</div>
 					<hr />
-					<p class="text-center">
-						&copy; Color Admin All Right Reserved 2018
+					<p class="text-center text-grey-darker">
+						&copy; IRIS ON - All Rights Reserved  <?php echo date("Y"); ?>
 					</p>
 				</form>
 			</div>

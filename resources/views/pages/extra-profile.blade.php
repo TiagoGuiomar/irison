@@ -1,6 +1,6 @@
 @extends('layouts.default', ['contentFullWidth' => true])
 
-@section('title', 'Profile Page')
+@section('title', 'Perfil')
 
 @push('css')
 	<link href="/assets/plugins/superbox/css/superbox.min.css" rel="stylesheet" />

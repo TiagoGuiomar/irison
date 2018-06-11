@@ -43,7 +43,6 @@
 		
 		@includeWhen($footer, 'includes.footer')
 		
-		@include('includes.component.theme-panel')
 		
 		@include('includes.component.scroll-top-btn')
 		

@@ -1,5 +1,5 @@
 <!-- begin #footer -->
 <div id="footer" class="footer">
-	&copy; 2018 Color Admin Responsive Admin Template - Sean Ngu All Rights Reserved
+	&copy; <?php echo date("Y"); ?> IRIS ON - All Rights Reserved
 </div>
 <!-- end #footer -->

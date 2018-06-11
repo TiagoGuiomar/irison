@@ -43,7 +43,6 @@
 		
 		<?php echo $__env->renderWhen($footer, 'includes.footer', array_except(get_defined_vars(), array('__data', '__path'))); ?>
 		
-		<?php echo $__env->make('includes.component.theme-panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 		
 		<?php echo $__env->make('includes.component.scroll-top-btn', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 		
